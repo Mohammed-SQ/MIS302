@@ -28,8 +28,8 @@ namespace GPACalculator
                 double fourthCourse = 0;
                 double fifthCourse = 0;
                 double gpa = 0;
-                int weightOne = int.Parse(txtCredit1.Text); // Credit Hour
-                int courseOne = int.Parse(txtCourse1.Text); // Course point
+                int weightOne = int.Parse(txtCredit1.Text); // 1 - Credit Hour
+                int courseOne = int.Parse(txtCourse1.Text); // 1 - Course point
                 if (courseOne >= 90)
                 {
                     firstCourse = 4.0; // "A"
@@ -51,8 +51,8 @@ namespace GPACalculator
                     firstCourse = 0; // "F"
                 }
 
-                int weightTwo = int.Parse(txtCredit2.Text); // Credit Hour
-                int courseTwo = int.Parse(txtCourse2.Text); // Course point
+                int weightTwo = int.Parse(txtCredit2.Text); // 2 - Credit Hour
+                int courseTwo = int.Parse(txtCourse2.Text); // 2 - Course point
                 if (courseTwo >= 90)
                 {
                     secondCourse = 4.0; // "A"
@@ -73,79 +73,79 @@ namespace GPACalculator
                 {
                     secondCourse = 0; // "F"
                 }
-                /*int weightOne = int.Parse(txtCredit1.Text); // Credit Hour
-                int courseOne = int.Parse(txtCourse1.Text); // Course point
-                if (courseOne >= 90)
+                int weightThree = int.Parse(txtCredit3.Text); // 3 - Credit Hour
+                int courseThree = int.Parse(txtCourse3.Text); // 3 - Course point
+                if (courseThree >= 90)
                 {
-                    firstCourse = 4.0; // "A"
+                    thirdCourse = 4.0; // "A"
                 }
-                else if (courseOne >= 80)
+                else if (courseThree >= 80)
                 {
-                    firstCourse = 3.0; // "B"
+                    thirdCourse = 3.0; // "B"
                 }
-                else if (courseOne >= 70)
+                else if (courseThree >= 70)
                 {
-                    firstCourse = 2.0; // "C"
+                    thirdCourse = 2.0; // "C"
                 }
-                else if (courseOne >= 60)
+                else if (courseThree >= 60)
                 {
-                    firstCourse = 1.0; // "D"
+                    thirdCourse = 1.0; // "D"
                 }
-                else if (courseOne <= 59)
+                else if (courseThree <= 59)
                 {
-                    firstCourse = 0; // "F"
+                    thirdCourse = 0; // "F"
                 }
-                int weightOne = int.Parse(txtCredit1.Text); // Credit Hour
-                int courseOne = int.Parse(txtCourse1.Text); // Course point
-                if (courseOne >= 90)
+                int weightFour = int.Parse(txtCredit4.Text); // 4 - Credit Hour
+                int courseFour = int.Parse(txtCourse4.Text); // 4 - Course point
+                if (courseFour >= 90)
                 {
-                    firstCourse = 4.0; // "A"
+                    fourthCourse = 4.0; // "A"
                 }
-                else if (courseOne >= 80)
+                else if (courseFour >= 80)
                 {
-                    firstCourse = 3.0; // "B"
+                    fourthCourse = 3.0; // "B"
                 }
-                else if (courseOne >= 70)
+                else if (courseFour >= 70)
                 {
-                    firstCourse = 2.0; // "C"
+                    fourthCourse = 2.0; // "C"
                 }
-                else if (courseOne >= 60)
+                else if (courseFour >= 60)
                 {
-                    firstCourse = 1.0; // "D"
+                    fourthCourse = 1.0; // "D"
                 }
-                else if (courseOne <= 59)
+                else if (courseFour <= 59)
                 {
-                    firstCourse = 0; // "F"
+                    fourthCourse = 0; // "F"
                 }
-                int weightOne = int.Parse(txtCredit1.Text); // Credit Hour
-                int courseOne = int.Parse(txtCourse1.Text); // Course point
-                if (courseOne >= 90)
+                int weightFive = int.Parse(txtCredit5.Text); // 5 - Credit Hour
+                int courseFive = int.Parse(txtCourse5.Text); // 5 - Course point
+                if (courseFive >= 90)
                 {
-                    firstCourse = 4.0; // "A"
+                    fifthCourse = 4.0; // "A"
                 }
-                else if (courseOne >= 80)
+                else if (courseFive >= 80)
                 {
-                    firstCourse = 3.0; // "B"
+                    fifthCourse = 3.0; // "B"
                 }
-                else if (courseOne >= 70)
+                else if (courseFive >= 70)
                 {
-                    firstCourse = 2.0; // "C"
+                    fifthCourse = 2.0; // "C"
                 }
-                else if (courseOne >= 60)
+                else if (courseFive >= 60)
                 {
-                    firstCourse = 1.0; // "D"
+                    fifthCourse = 1.0; // "D"
                 }
-                else if (courseOne <= 59)
+                else if (courseFive <= 59)
                 {
-                    firstCourse = 0; // "F"
-                }*/
-                double totalWeights = weightOne + weightTwo;
-                gpa = firstCourse * weightOne * secondCourse * weightTwo / totalWeights;
+                    fifthCourse = 0; // "F"
+                }
+                double totalWeights = weightOne + weightTwo + weightThree + weightFour + weightFive;
+                gpa = (firstCourse * weightOne + secondCourse * weightTwo + thirdCourse * weightThree + fourthCourse * weightFour + fifthCourse * weightFive) / totalWeights;
                 MessageBox.Show("GPA IS: " + gpa.ToString());
             }
             catch
             {
-
+                MessageBox.Show("Please enter correct number values for all courses points and credit hours.");
             }
         }
 
