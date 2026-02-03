@@ -1,0 +1,146 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace TemperatureConvertor
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double fahrenheit = 0;
+                double celsius = 0;
+                double kelvin = 0;
+                int indexNum = 0;
+                double tempNum = double.Parse(txtboxTemp.Text);
+                string tempOne = listBox1.SelectedItem.ToString();
+                string tempTwo = listBox2.SelectedItem.ToString();
+                switch (tempOne)
+                {
+
+                    case "Fahrenheit":
+                        indexNum = 0;
+                        listBox2.Items.Remove("Fahrenheit");
+                        switch (tempTwo)
+                        {
+                            case "Celsius":
+                                fahrenheit = tempNum * 1.8 + 32; // C to F
+                                lblConverted.Text = fahrenheit.ToString();
+                                break;
+                            case "Kelvin":
+                                fahrenheit = (tempNum - 273.15) * 1.8 + 32; // K to F
+                                lblConverted.Text = fahrenheit.ToString();
+                                break;
+                        }
+                        break;
+                    case "Celsius":
+                        listBox2.Items.Remove("Celsius");
+                        switch (tempTwo)
+                        {
+                            case "Fahrenheit":
+                                celsius = (tempNum - 32) / 1.8; // F TO C
+                                lblConverted.Text = celsius.ToString();
+                                break;
+                            case "Kelvin":
+                                celsius = tempNum - 273.15; // K to C
+                                lblConverted.Text = celsius.ToString();
+                                break;
+                        }
+                        break;
+                    case "Kelvin":
+                        listBox2.Items.Remove("Kelvin");
+                        switch (tempTwo)
+                        {
+                            case "Celsius":
+                                kelvin = tempNum + 373.15; // C to K
+                                lblConverted.Text = kelvin.ToString();
+                                break;
+                            case "Fahrenheit":
+                                kelvin = (tempNum - 32) / 1.8 + 273.15; // F TO K
+                                lblConverted.Text = kelvin.ToString();
+                                break;
+                        }
+                        break;
+                }
+
+
+            }
+            catch 
+            { 
+                MessageBox.Show("Something Wrong!");
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblConverted_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Celsius
+            //Fahrenheit
+            //Kelvin
+            /*string tempOne = listBox1.SelectedItem.ToString();
+            switch (tempOne)
+            {
+                case "Celsius":
+                    MessageBox.Show("1");
+                    break;
+                case "Kelvin":
+                    MessageBox.Show("2");
+                    break;
+                case "Fahrenheit":
+                    MessageBox.Show("3");
+                    break;
+            }*/
+            
+        }
+    
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           /* string tempTwo = listBox2.SelectedItem.ToString();
+                switch (tempTwo)
+                {
+                    case "Celsius":
+                        MessageBox.Show("1");
+                        break;
+                    case "Kelvin":
+                        MessageBox.Show("2");
+                        break;
+                    case "Fahrenheit":
+                        MessageBox.Show("3");
+                        break;
+                 }*/
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtboxTemp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
